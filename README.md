@@ -9,9 +9,9 @@
 
 ## 算法一
 
-步骤1：   
+- 步骤1：   
 令dp[i]表示以nums[i]作为结尾的连续子序列的最大和   
-步骤2：   
+- 步骤2：   
 因为dp[i]是要求必须以nums[i]结尾的连续序列，那么只有两种情况：   
 	1. 这个最大连续序列只有一个元素，即以nums[i]开始，以nums[i]结尾   
 	2. 这个最大和的连续序列有多个元素，即以nums[p]开始（p<i），以nums[i]结束   
@@ -19,7 +19,7 @@
 对于情况2，最大和是dp[i-1]+nums[i]   
 于是得到状态转移方程：   
 dp[i]=max{nums[i],dp[i-1]+nums[i]}   
-步骤3：   
+- 步骤3：   
 最大连续子序列的和为max{dp[i]} (1<=i<=n)
 	
 ```bash
@@ -46,21 +46,24 @@ def maxSumAndSub1(nums):
 	print('max sub:', nums[start[max_index]:max_index + 1])  # 结束位置永远是i+1，由dp的定义决定
 ```
 
+
 ![alt text](https://github.com/meowmiji/subseries-max-sum/blob/master/images/method_1_illustration.png)
+
+
 
 
 ## 算法二
 
-步骤1：   
+- 步骤1：   
 以左端第一个元素作为局部最低点，局部最大累加集合LM为[]   
-步骤2：   
+- 步骤2：   
 累加和s=0，局部最大累加lm=0   
-步骤3：   
+- 步骤3：   
 向右累加一个元素，s+=nums[i]   
 若s为正且s>lm，lm=s   
-步骤4：   
+- 步骤4：   
 重复步骤3，直到s非正，来到了新的局部低点，LM.append(lm)   
-步骤5：   
+- 步骤5：   
 重复步骤2-4，直到来到序列最右端，最大连续子序列的和为max(LM)   
 
 ```bash
@@ -100,5 +103,6 @@ def maxSumAndSub2(nums):
 	max_index = lm.index(max(lm))
 	print('max sub:', nums[start[max_index]:end[max_index]])
 ```
+
 
 ![alt text](https://github.com/meowmiji/subseries-max-sum/blob/master/images/method_2_illustration.png)
