@@ -45,12 +45,12 @@ def maxSumAndSub1(nums):
 	max_index = dp.index(max(dp))
 	print('max sub:', nums[start[max_index]:max_index + 1])  # 结束位置永远是i+1，由dp的定义决定
 ```
-
+   
 
 ![alt text](https://github.com/meowmiji/subseries-max-sum/blob/master/images/method_1_illustration.png)
 
-
-
+   
+   
 
 ## 算法二
 
@@ -103,6 +103,6 @@ def maxSumAndSub2(nums):
 	max_index = lm.index(max(lm))
 	print('max sub:', nums[start[max_index]:end[max_index]])
 ```
-
+   
 
 ![alt text](https://github.com/meowmiji/subseries-max-sum/blob/master/images/method_2_illustration.png)
