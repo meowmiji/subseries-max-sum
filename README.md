@@ -47,6 +47,7 @@ def maxSumAndSub1(nums):
 
 ![alt text](https://github.com/meowmiji/subseries-max-sum/blob/master/images/method_1_illustration.png)
 
+
 ## 算法二
 
 - 步骤1：
