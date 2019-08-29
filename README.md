@@ -9,17 +9,17 @@
 
 ## 算法一
 
-- 步骤1：__
+- 步骤1：   
 令dp[i]表示以nums[i]作为结尾的连续子序列的最大和
-- 步骤2：
-因为dp[i]是要求必须以nums[i]结尾的连续序列，那么只有两种情况：
-	1.这个最大连续序列只有一个元素，即以nums[i]开始，以nums[i]结尾
-	2.这个最大和的连续序列有多个元素，即以nums[p]开始（p<i），以nums[i]结束
-对于情况1，最大和就是nums[i]本身
-对于情况2，最大和是dp[i-1]+nums[i]
-于是得到状态转移方程：
-dp[i]=max{nums[i],dp[i-1]+nums[i]} 
-- 步骤3：
+- 步骤2：   
+因为dp[i]是要求必须以nums[i]结尾的连续序列，那么只有两种情况：   
+    1.这个最大连续序列只有一个元素，即以nums[i]开始，以nums[i]结尾   
+    2.这个最大和的连续序列有多个元素，即以nums[p]开始（p<i），以nums[i]结束   
+对于情况1，最大和就是nums[i]本身   
+对于情况2，最大和是dp[i-1]+nums[i]   
+于是得到状态转移方程：   
+dp[i]=max{nums[i],dp[i-1]+nums[i]}
+- 步骤3：   
 最大连续子序列的和为max{dp[i]} (1<=i<=n)
 	
 ```bash
@@ -31,7 +31,8 @@ def maxSumAndSub1(nums):
 		if nums[i] >= dp[-1] + nums[i]:
 			dp.append(nums[i])
 			start.append(i)
-		# 最大序列为[以nums[i-1]为结尾的最大序列, nums[i]]的情况，此时最大序列开始位置与上一最大序列开始位置保持不变
+		# 最大序列为[以nums[i-1]为结尾的最大序列, nums[i]]的情况
+        # 此时最大序列开始位置与上一最大序列开始位置保持不变
 		else:
 			dp.append(dp[-1] + nums[i])
 			start.append(start[-1])
