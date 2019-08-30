@@ -24,25 +24,25 @@ dp[i]=max{nums[i],dp[i-1]+nums[i]}
 	
 ```bash
 def maxSumAndSub1(nums):
-	dp = [nums[0]]
-	start = [0]  # 这里的开始和结束位置指的是以其值做序列切片，即nums[start:end]
-	for i in range(1, len(nums)):
-		# 最大序列只有nums[i]一个元素的情况，此时的最大序列开始位置为i
-		if nums[i] >= dp[-1] + nums[i]:
-			dp.append(nums[i])
-			start.append(i)
-		# 最大序列为[以nums[i-1]为结尾的最大序列, nums[i]]的情况，此时最大序列开始位置与上一最大序列开始位置保持不变
-		else:
-			dp.append(dp[-1] + nums[i])
-			start.append(start[-1])
+    dp = [nums[0]]
+    start = [0]  # 这里的开始和结束位置指的是以其值做序列切片，即nums[start:end]
+    for i in range(1, len(nums)):
+        # 最大序列只有nums[i]一个元素的情况，此时的最大序列开始位置为i
+        if nums[i] >= dp[-1] + nums[i]:
+            dp.append(nums[i])
+            start.append(i)
+        # 最大序列为[以nums[i-1]为结尾的最大序列, nums[i]]的情况，此时最大序列开始位置与上一最大序列开始位置保持不变
+        else:
+            dp.append(dp[-1] + nums[i])
+            start.append(start[-1])
 
-	print('nums:', nums)
-	print('dp:', dp)
-	print('start:', start)
-	# 上为辅助计算数值，下为最大和和对应的子序列
-	print('max sum:', max(dp))
-	max_index = dp.index(max(dp))
-	print('max sub:', nums[start[max_index]:max_index + 1])  # 结束位置永远是i+1，由dp的定义决定
+    print('nums:', nums)
+    print('dp:', dp)
+    print('start:', start)
+    # 上为辅助计算数值，下为最大和和对应的子序列
+    print('max sum:', max(dp))
+    max_index = dp.index(max(dp))
+    print('max sub:', nums[start[max_index]:max_index + 1])  # 结束位置永远是i+1，由dp的定义决定
 ```
    
 
