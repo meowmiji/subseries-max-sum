@@ -31,8 +31,7 @@ def maxSumAndSub1(nums):
 		if nums[i] >= dp[-1] + nums[i]:
 			dp.append(nums[i])
 			start.append(i)
-		# 最大序列为[以nums[i-1]为结尾的最大序列, nums[i]]的情况
-		# 此时最大序列开始位置与上一最大序列开始位置保持不变
+		# 最大序列为[以nums[i-1]为结尾的最大序列, nums[i]]的情况，此时最大序列开始位置与上一最大序列开始位置保持不变
 		else:
 			dp.append(dp[-1] + nums[i])
 			start.append(start[-1])
